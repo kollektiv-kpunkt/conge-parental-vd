@@ -79,7 +79,9 @@ register_activation_hook( __FILE__, 'cpv_install' );
 register_uninstall_hook( __FILE__, 'cpv_uninstall');
 
 function cpv_lander() {
-
+    wp_enqueue_style( 'cpv-main', plugin_dir_url( __FILE__ ) . "public/style/style.css" );
+    wp_enqueue_style( 'cpv-fa', plugin_dir_url( __FILE__ ) . "lib/font-awesome/css/font-awesome.min.css" );
+    wp_enqueue_script( "cpv-app", plugin_dir_url( __FILE__) . "public/js/app.js" , array("jquery"), CONGEPARENTALVD_VERSION, true );
     //Turn on output buffering
     ob_start();
     include(__DIR__ . "/views/lander.php");
