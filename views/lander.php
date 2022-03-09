@@ -19,7 +19,7 @@ if ($percentage >= 100) {
     <div id="cpv-lander-content" class="cpv-lander-half">
         <div id="cpv-lander-inner">
             <div id="cpv-lander-wrapper">
-                <h1 id="cpv-lander-title">POUR UN CONGÉ PARENTAL VAUDOIS !</h1>
+                <h1 id="cpv-lander-title">POUR UN CONGÉ PARENTAL VAUDOIS&nbsp;!</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, neque ducimus eligendi libero maiores hic provident distinctio aliquid, officia ex iure magni optio sit totam vel eum, dicta consequuntur harum.</p>
                 <div id="cpv-lander-counter-container" style="--percentage: <?= $percentage ?>%;">
                     <div id="cpv-counter-numbers">

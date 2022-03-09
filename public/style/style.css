@@ -7,12 +7,36 @@
 
 #cpv-lander {
   display: flex;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   background-color: var(--cream);
+  align-items: stretch;
 }
 
 #cpv-lander .cpv-lander-half {
   width: 50%;
+}
+
+@media screen and (max-width: 1280px) {
+  #cpv-lander .cpv-lander-half:nth-child(1) {
+    width: 30%;
+  }
+  #cpv-lander .cpv-lander-half:nth-child(2) {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #cpv-lander {
+    flex-wrap: wrap;
+  }
+  #cpv-lander .cpv-lander-half:nth-child(1),
+  #cpv-lander .cpv-lander-half:nth-child(2) {
+    width: 100%;
+  }
+
+  #cpv-lander .cpv-lander-half:nth-child(1) {
+    height: 33vh;
+  }
 }
 
 #cpv-lander #cpv-lander-image img {
@@ -24,7 +48,6 @@
 
 #cpv-lander #cpv-lander-content {
   display: flex;
-  height: 100%;
   align-items: center;
 }
 
@@ -34,9 +57,22 @@
   padding-right: 5vw;
 }
 
+@media screen and (max-width: 1080px) {
+  #cpv-lander #cpv-lander-wrapper {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+  }
+}
+
 #cpv-lander h1#cpv-lander-title {
   font-size: 5rem;
   color: var(--turquoise);
+}
+
+@media screen and (max-width: 1280px) {
+  #cpv-lander h1#cpv-lander-title {
+    font-size: 4rem;
+  }
 }
 
 #cpv-lander #cpv-lander-wrapper p {
@@ -226,4 +262,38 @@
 
 ul.parsley-errors-list {
   padding-bottom: 0;
+}
+
+#demovox_form_2 .select2-container {
+  width: 100% !important;
+}
+
+#demovox_form_2 .select2-container--default .select2-selection--single {
+  height: calc(1.5em + 0.75rem + 5px);
+  border: none;
+  border-radius: 3px;
+  border-bottom: 3px solid var(--dark);
+}
+
+#demovox_form_2
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: calc(1.5rem + 0.75rem);
+}
+#demovox_form_2
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  line-height: calc(1.5em + 0.75rem + 2px);
+}
+
+@media screen and (max-width: 580px) {
+  #cpv-lander #demovox_form_1 .form-group:not(#demovox-grp-mail) {
+    width: 100%;
+  }
+
+  #cpv-lander #demovox_form_1 .form-group#demovox-grp-is_optin {
+    margin-top: 0;
+  }
 }
