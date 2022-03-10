@@ -16,7 +16,7 @@
  * Plugin Name:       Cogé Parental VD
  * Plugin URI:        https://github.com/kollektiv-kpunkt/conge-parental-vd
  * Description:       Plugin for cantonal initiative in the état de vaud for collecting signatures with Demovox (https://github.com/spschweiz/demovox).
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Timothy@K.
  * Author URI:        https://kpunkt.ch/
  * GitHub Plugin URI: https://github.com/kollektiv-kpunkt/conge-parental-vd
