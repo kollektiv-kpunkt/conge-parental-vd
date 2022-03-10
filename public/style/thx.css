@@ -25,3 +25,14 @@
   font-size: 2rem;
   color: var(--turquoise);
 }
+
+#cpv-oder-sheet-success {
+  background: #f1fff1;
+  border: 3px solid #003900;
+  color: #003900;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 3px;
+  font-size: 1.15rem;
+  font-weight: bold;
+}

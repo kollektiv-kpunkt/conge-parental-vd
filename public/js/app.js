@@ -12,7 +12,10 @@ jQuery(document).on("click", "#cpv-order-sheet-button", function (e) {
       guid: guid,
     },
     success: (response) => {
-      console.log(response);
+      jQuery("#cpv-order-sheet-container").append(
+        "<div id='cpv-oder-sheet-success'>Parfait, vous recevrez la feuille par la poste !</div>"
+      );
+      jQuery("#cpv-order-sheet-button").remove();
     },
   });
 });
