@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Simple Transactional Email</title>
+    <style>
+        /* -------------------------------------
+          GLOBAL RESETS
+      ------------------------------------- */
+
+        /*All the styling goes here*/
+
+        img {
+            border: none;
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table {
+            border-collapse: separate;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            width: 100%;
+        }
+
+        table td {
+            font-family: sans-serif;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        /* -------------------------------------
+          BODY & CONTAINER
+      ------------------------------------- */
+
+        .body {
+            width: 100%;
+        }
+
+        /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+        .container {
+            display: block;
+            margin: 0 auto !important;
+            /* makes it centered */
+            max-width: 580px;
+            padding: 10px;
+            width: 580px;
+        }
+
+        /* This should also be a block element, so that it will fill 100% of the .container */
+        .content {
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto;
+            max-width: 580px;
+            padding: 10px;
+        }
+
+        /* -------------------------------------
+          HEADER, FOOTER, MAIN
+      ------------------------------------- */
+        .main {
+            background: #ffffff;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        .wrapper {
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .content-block {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .footer {
+            clear: both;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .footer td,
+        .footer p,
+        .footer span
+        {
+            color: #999999;
+            font-size: 12px;
+        }
+
+        /* -------------------------------------
+          TYPOGRAPHY
+      ------------------------------------- */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #000000;
+            font-family: sans-serif;
+            font-weight: 400;
+            line-height: 1.4;
+            margin: 0;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 35px;
+            font-weight: 300;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        p,
+        ul,
+        ol {
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+            margin-bottom: 15px;
+        }
+
+        p li,
+        ul li,
+        ol li {
+            list-style-position: inside;
+            margin-left: 5px;
+        }
+
+        a {
+            color: #1c9387;
+            text-decoration: underline;
+        }
+
+        /* -------------------------------------
+          BUTTONS
+      ------------------------------------- */
+        .btn {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .btn>tbody>tr>td {
+            padding-bottom: 15px;
+        }
+
+        .btn table {
+            width: auto;
+        }
+
+        .btn table td {
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn a {
+            background-color: #ffffff;
+            border: solid 1px #1c9387;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #1c9387;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            padding: 12px 25px;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
+        .btn-primary table td {
+            background-color: #1c9387;
+        }
+
+        .btn-primary a {
+            background-color: #1c9387;
+            border-color: #1c9387;
+            color: #ffffff;
+        }
+
+        /* -------------------------------------
+          OTHER STYLES THAT MIGHT BE USEFUL
+      ------------------------------------- */
+        .last {
+            margin-bottom: 0;
+        }
+
+        .first {
+            margin-top: 0;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .align-right {
+            text-align: right;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .mt0 {
+            margin-top: 0;
+        }
+
+        .mb0 {
+            margin-bottom: 0;
+        }
+
+        .preheader {
+            color: transparent;
+            display: none;
+            height: 0;
+            max-height: 0;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            mso-hide: all;
+            visibility: hidden;
+            width: 0;
+        }
+
+        .powered-by a {
+            text-decoration: none;
+        }
+
+        hr {
+            border: 0;
+            border-bottom: 1px solid #f6f6f6;
+            margin: 20px 0;
+        }
+
+        /* -------------------------------------
+          RESPONSIVE AND MOBILE FRIENDLY STYLES
+      ------------------------------------- */
+        @media only screen and (max-width: 620px) {
+            table.body h1 {
+                font-size: 28px !important;
+                margin-bottom: 10px !important;
+            }
+
+            table.body p,
+            table.body ul,
+            table.body ol,
+            table.body td,
+            table.body span,
+            table.body a {
+                font-size: 16px !important;
+            }
+
+            table.body .wrapper,
+            table.body .article {
+                padding: 10px !important;
+            }
+
+            table.body .content {
+                padding: 0 !important;
+            }
+
+            table.body .container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            table.body .main {
+                border-left-width: 0 !important;
+                border-radius: 0 !important;
+                border-right-width: 0 !important;
+            }
+
+            table.body .btn table {
+                width: 100% !important;
+            }
+
+            table.body .btn a {
+                width: 100% !important;
+            }
+
+            table.body .img-responsive {
+                height: auto !important;
+                max-width: 100% !important;
+                width: auto !important;
+            }
+        }
+
+        /* -------------------------------------
+          PRESERVE THESE STYLES IN THE HEAD
+      ------------------------------------- */
+        @media all {
+            .ExternalClass {
+                width: 100%;
+            }
+
+            .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+                line-height: 100%;
+            }
+
+            .apple-link a {
+                color: inherit !important;
+                font-family: inherit !important;
+                font-size: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+                text-decoration: none !important;
+            }
+
+            #MessageViewBody a {
+                color: inherit;
+                text-decoration: none;
+                font-size: inherit;
+                font-family: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+
+            .btn-primary table td:hover {
+                background-color: #05302b !important;
+            }
+
+            .btn-primary a:hover {
+                background-color: #05302b !important;
+                border-color: #05302b !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span class="preheader">Merci d'avoir signé l'initiative!</span>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="container">
+                <div class="content">
+
+                    <!-- START CENTERED WHITE CONTAINER -->
+                    <table role="presentation" class="main">
+
+                        <!-- START MAIN CONTENT AREA -->
+                        <tr>
+                            <td class="wrapper">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <p>Bonjour Timothy</p>
+                                            <p>Merci d'avoir signé l'initiative! Voici ton formulaire à imprimer et à renvoyer:</p>
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> <a href="{link_pdf}" rel="noopener" target="_blank">feuille de signature
+                                                                                personnelle</a> </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p>Une initiative populaire entraîne des frais importants, par exemple pour l'expédition postale ou l'obtention de
+                                                l'attestation des signatures auprès des communes. Nous pouvons compter sur le travail de bénévoles, mais nous avons
+                                                aussi besoins de moyens financiers.&nbsp;</p>
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> <a href="https://congeparentalvaud.ch/sengager/#don" rel="noopener" target="_blank">faire un don</a> </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p>Pour que la signature soit valable, voici comment procéder:</p>
+                                            <ul>
+                                                <li>d'autres personnes peuvent signer sur la même feuille, elles doivent simplement avoir le droit de vote dans la
+                                                    même commune. Pour des personnes habitant d'autres communes, il est possible de remplir à nouveau le <a
+                                                        href="https://congeparentalvaud.ch/">formulaire</a> ou de télécharger une <a
+                                                        href="https://congeparentalvaud.ch/wp-content/uploads/2022/01/Feuille_signatures_conge_parental_A4.pdf">feuille
+                                                        de signatures vierge</a></li>
+                                                <li>la feuille de signatures peut être renvoyée par la poste: il suffit de la plier en deux et de la coller, puis de
+                                                    la glisser dans une boîte aux lettres&nbsp;</li>
+                                                <li>le nom, le prénom et la signature doivent être inscrits à la main pour respecter les exigences légales</li>
+                                                <li>la partie au bas du formulaire doit être laissée libre, c'est la commune qui la remplira en attestant les
+                                                    signatures</li>
+                                                <li>En cas de question, simplement répondre à ce mail.</li>
+                                            </ul>
+                                            <p>Meilleures salutations,<br /><strong>L'équipe en ligne de l'initiative pour un congé parental vaudois</strong></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- END MAIN CONTENT AREA -->
+                    </table>
+                    <!-- END CENTERED WHITE CONTAINER -->
+
+                    <!-- START FOOTER -->
+                    <div class="footer">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td> <a href="{link_home}/?sign={guid}" target="_blank"><img style="height: 75px;" alt="Stop F-35 Logo"
+                                                src="https://congeparentalvaud.ch/wp-content/uploads/2021/08/CP_03_site.png"></a>
+                                    </td>
+                                    <td>
+                                        <small>
+                                            <p> Initiative «Congé parental vaudois»<br>
+                                                c/o Pl. Chauderon 5<br>
+                                                1003 Lausanne
+                                            </p>
+                                            <p> <a href="{link_home}"
+                                                    target="_blank">www.congeparentalvaud.ch</a>
+                                                // <a href="mailto:info@ps-vd.ch">info@ps-vd.ch</a>
+                                            </p>
+                                            <p> Soutenir notre engagement pour le congé parental vaudois <a href="https://congeparentalvaud.ch/sengager/#don"
+                                                    target="_blank">avec un don</a>
+                                            </p>
+                                        </small>
+                                    </td>
+                                </tr>
+                            </tbody>
+                    </div>
+                    <!-- END FOOTER -->
+
+                </div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</body>
+
+</html>

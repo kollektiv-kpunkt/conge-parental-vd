@@ -16,3 +16,18 @@ jQuery(document).on("click", "#cpv-order-sheet-button", function (e) {
     },
   });
 });
+
+function resizeTextarea(textarea) {
+  textarea.each(function () {
+    jQuery(this).css("height", "auto");
+    jQuery(this).css("height", $(this)[0].scrollHeight + "px");
+  });
+}
+
+jQuery(document).ready(function () {
+  resizeTextarea(jQuery("textarea#sharemsg"));
+});
+
+jQuery(document).on("input", "textarea", function () {
+  resizeTextarea(jQuery(this));
+});

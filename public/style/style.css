@@ -57,6 +57,11 @@
   padding-right: 5vw;
 }
 
+#cpv-lander #cpv-lander-wrapper {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 @media screen and (max-width: 1080px) {
   #cpv-lander #cpv-lander-wrapper {
     padding-top: 5vw;
@@ -257,6 +262,10 @@
 }
 
 #cpv-lander #demovox-grp-submit input:hover {
+  background-color: var(--light);
+}
+
+#cpv-lander #demovox-grp-submit input:focus {
   background-color: var(--light);
 }
 

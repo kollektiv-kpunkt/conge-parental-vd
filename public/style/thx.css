@@ -17,11 +17,24 @@
   margin-top: 1rem;
 }
 
-#cpv-order-sheet-container {
+#cpv-order-sheet-container,
+#cpv-share-container {
   margin-top: 2rem;
 }
 
-#cpv-order-sheet-container h3 {
+#cpv-order-sheet-container h3,
+#cpv-share-container h3 {
   font-size: 2rem;
   color: var(--turquoise);
+}
+
+textarea#sharemsg {
+  width: 100%;
+  max-width: 21cm;
+  padding: 0.75rem;
+  line-height: 1.4;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 3px solid var(--dark);
+  border-radius: 3px;
 }
