@@ -1,6 +1,7 @@
 <?php
 function send_orders_function() {
-    include(__DIR__ . "/../../../../wp-load.php");
+    global $wpdb;
+
     $orders = $wpdb->get_results("SELECT * FROM `{$wpdb->prefix}cpv_boegen` WHERE `is_sent` = 0;");
     $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"];
     $filename = "orders_" . date("Ymd");
