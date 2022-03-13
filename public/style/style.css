@@ -307,3 +307,12 @@ ul.parsley-errors-list {
     margin-top: 0;
   }
 }
+
+/* Remove Phone Numer */
+.form-group#demovox-grp-phone {
+  display: none;
+}
+
+#cpv-lander #demovox_form_1 .form-group#demovox-grp-mail-cont {
+  width: 100%;
+}

@@ -27,7 +27,7 @@ function resizeTextarea(textarea) {
   });
 }
 
-jQuery(document).ready(function () {
+jQuery(window).on("load", function () {
   resizeTextarea(jQuery("textarea#sharemsg"));
 });
 
@@ -65,6 +65,12 @@ jQuery(document).on("click", ".boettens .boetten", function (e) {
   } else if (type == "email") {
     window.open(
       `mailto:?body=${encodeURIComponent(text)}%0A${encodeURIComponent(url)}`
+    );
+  } else if (type == "threema") {
+    window.open(
+      `https://threema.id/compose?text=${encodeURIComponent(
+        text
+      )}%0A${encodeURIComponent(url)}`
     );
   }
 });

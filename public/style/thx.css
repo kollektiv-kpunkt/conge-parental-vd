@@ -17,9 +17,23 @@
   margin-top: 1rem;
 }
 
+#cpv-oder-sheet-success {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #baebe6;
+  border: 3px solid var(--turquoise);
+  border-radius: 3px;
+  color: var(--turquoise);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 #cpv-order-sheet-container,
 #cpv-share-container {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 #cpv-order-sheet-container h3,
@@ -34,6 +48,8 @@
 }
 
 textarea#sharemsg {
+  overflow: hidden;
+  resize: none;
   width: 100%;
   margin-top: 1rem;
   padding: 1rem;
@@ -51,6 +67,7 @@ textarea#sharemsg {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .boettens .boetten {
@@ -125,6 +142,18 @@ textarea#sharemsg {
   content: "\f0e0" !important;
 }
 
-.boettens .boetten:last-child {
-  width: 100% !important;
+.boettens .boetten#threema {
+  --buttoncolor: var(--black) !important;
+  --buttonbg: #2e2e2e !important;
+  --buttonborder: #2e2e2e !important;
+}
+.boettens .boetten#threema::after {
+  display: inline-block;
+  content: url("https://api.iconify.design/simple-icons/threema.svg?color=white&width=20&height=20'");
+}
+
+@media screen and (max-width: 680px) {
+  .boettens .boetten {
+    width: 100%;
+  }
 }
