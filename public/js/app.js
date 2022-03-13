@@ -34,3 +34,37 @@ jQuery(document).ready(function () {
 jQuery(document).on("input", "textarea", function () {
   resizeTextarea(jQuery(this));
 });
+
+jQuery(document).on("click", ".boettens .boetten", function (e) {
+  e.preventDefault();
+  var type = jQuery(this).attr("id");
+  var url = window.location.hostname;
+  var text = jQuery(this).parents().eq(1).find("#sharemsg").val();
+  if (type == "whatsapp") {
+    window.open(
+      `https://api.whatsapp.com/send/?text=${encodeURIComponent(
+        text
+      )}%0A${encodeURIComponent(url)}`
+    );
+  } else if (type == "telegram") {
+    window.open(
+      `https://t.me/share/url?url=${encodeURIComponent(
+        url
+      )}&text=${encodeURIComponent(text)}`
+    );
+  } else if (type == "facebook") {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+    );
+  } else if (type == "twitter") {
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        text
+      )}%0A${encodeURIComponent(url)}`
+    );
+  } else if (type == "email") {
+    window.open(
+      `mailto:?body=${encodeURIComponent(text)}%0A${encodeURIComponent(url)}`
+    );
+  }
+});

@@ -28,13 +28,103 @@
   color: var(--turquoise);
 }
 
+#cpv-share-inner {
+  width: 100%;
+  max-width: 17cm;
+}
+
 textarea#sharemsg {
   width: 100%;
-  max-width: 21cm;
-  padding: 0.75rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-bottom: calc(1rem + 3px);
   line-height: 1.4;
   font-size: 1rem;
   border: none;
   border-bottom: 3px solid var(--dark);
   border-radius: 3px;
+  background-color: var(--light);
+}
+
+.boettens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.boettens .boetten {
+  width: calc(50% - 0.25rem);
+  font-family: "viksjoe-regular", Georgia, "Times New Roman", serif;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: white;
+  background-color: var(--buttonbg);
+  border: 3px solid var(--buttonborder);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.25s ease background-color;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+}
+
+.boettens .boetten::after {
+  font-family: "Font Awesome 5 Brands" !important;
+  display: inline-block !important;
+  font-size: 1.5rem !important;
+  padding-left: 0.3em !important;
+  transform: translateY(0.1em);
+  line-height: 0.9 !important;
+  font-weight: 400 !important;
+}
+
+.boettens .boetten#whatsapp {
+  --buttoncolor: var(--white) !important;
+  --buttonbg: #25d366 !important;
+  --buttonborder: #25d366 !important;
+}
+.boettens .boetten#whatsapp::after {
+  content: "\f232";
+}
+
+.boettens .boetten#telegram {
+  --buttoncolor: var(--white) !important;
+  --buttonbg: #0088cc !important;
+  --buttonborder: #0088cc !important;
+}
+.boettens .boetten#telegram::after {
+  content: "\f2c6";
+}
+
+.boettens .boetten#facebook {
+  --buttoncolor: var(--white) !important;
+  --buttonbg: #4267b2 !important;
+  --buttonborder: #4267b2 !important;
+}
+.boettens .boetten#facebook::after {
+  content: "\f09a";
+}
+
+.boettens .boetten#twitter {
+  --buttoncolor: var(--white) !important;
+  --buttonbg: #1da1f2 !important;
+  --buttonborder: #1da1f2 !important;
+}
+.boettens .boetten#twitter::after {
+  content: "\f099";
+}
+
+.boettens .boetten#email {
+  --buttoncolor: var(--black) !important;
+  --buttonbg: var(--dark) !important;
+  --buttonborder: var(--dark) !important;
+}
+.boettens .boetten#email::after {
+  font-family: FontAwesome !important;
+  content: "\f0e0" !important;
+}
+
+.boettens .boetten:last-child {
+  width: 100% !important;
 }

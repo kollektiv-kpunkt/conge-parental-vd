@@ -1,4 +1,4 @@
-<?php
+p<?php
 include("../../../../wp-load.php");
 $guid = $_POST["guid"];
 $signature = $wpdb->get_row("SELECT * from `{$wpdb->prefix}demovox_signatures` WHERE `guid` = '{$guid}';");

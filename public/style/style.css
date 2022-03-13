@@ -3,6 +3,7 @@
   --light: #ffe5b0;
   --cream: #f5edd6;
   --turquoise: #1c9387;
+  --light: #f1f1f1;
 }
 
 #cpv-lander {
@@ -76,7 +77,7 @@
 
 @media screen and (max-width: 1280px) {
   #cpv-lander h1#cpv-lander-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 
